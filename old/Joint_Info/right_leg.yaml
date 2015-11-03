@@ -1,0 +1,50 @@
+RL1_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_1RL
+    joint_speed: 1.0
+    motor:
+        id: 21
+        init: 2048
+        min: 0
+        max: 4095        
+RL2_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_2RL
+    joint_speed: 1.0
+    motor:
+        id: 22
+        init: 2048
+        min: 0
+        max: 4095
+        
+RL3_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_3RL
+    joint_speed: 1.0
+    motor:
+        id: 23
+        init: 2048
+        min: 0
+        max: 4095
+RL4_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_4RL
+    joint_speed: 1.0
+    motor:
+        id: 24
+        init: 2048
+        min: 0
+        max: 4095        
+

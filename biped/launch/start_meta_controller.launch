@@ -1,0 +1,60 @@
+<!-- -*- mode: XML -*- -->
+<!-- RL5 and RL6 are yet to be added (no motors) -->
+<launch>
+<!-- Start right_leg joint controller -->
+    <rosparam file="$(find biped)/Joint_Info/right_leg.yaml" command="load"/>
+    <node name="right_leg_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dxl_port
+                RL1_controller                       
+                RL2_controller
+                RL3_controller
+                RL4_controller " output="screen"/>
+<!-- Start left_leg joint controller -->
+    <rosparam file="$(find biped)/Joint_Info/left_leg.yaml" command="load"/>
+    <node name="left_leg_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dxl_port
+                LL1_controller                       
+                LL2_controller
+                LL3_controller                       
+                LL4_controller
+                LL5_controller
+                LL6_controller " output="screen"/>
+<!-- Start right arm joint controller -->
+    <rosparam file="$(find biped)/Joint_Info/right_arm.yaml" command="load"/>
+    <node name="right_arm_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dxl_port
+                RA1_controller                       
+                RA2_controller
+                RA3_controller
+                RA4_controller " output="screen"/>
+<!-- Start left arm joint controller -->
+    <rosparam file="$(find biped)/Joint_Info/left_arm.yaml" command="load"/>
+    <node name="left_arm_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dxl_port
+                LA1_controller                       
+                LA2_controller
+                LA3_controller
+                LA4_controller " output="screen"/>  
+<!-- Start torso joint controller -->
+    <rosparam file="$(find biped)/Joint_Info/torso.yaml" command="load"/>
+    <node name="torso_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dxl_port
+                T1_controller                       
+                T2_controller
+                T3_controller
+                T4_controller
+                T5_controller " output="screen"/> 
+ <!-- Start head joint controller -->
+    <rosparam file="$(find biped)/Joint_Info/head.yaml" command="load"/>
+    <node name="head_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dxl_port
+                H1_controller                       
+                H2_controller " output="screen"/>
+
+</launch>         
