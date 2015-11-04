@@ -9,6 +9,6 @@ Doing this start a new terminal window  and execute start_meta_controller.launch
 this show show clean exit after initiating all the topics .
 
 Having done this convert all the python file in to executebles using chmod+x *.py
-you can run each mode separately in terminal or write a new code imnporting all of them in a new python code.Also if you want you can change the coodinates for the various codes (joint position).As of now Cycloidal trajectory has been generated .Cubic spline for master controller yet to be implemented.
+you can run each mode separately in terminal or write a new code imnporting all of them in a new python code.Also if you want you can change the coodinates for the various codes (joint position) it can be done in main section of the code.As of now Cycloidal trajectory has been generated .Cubic spline for master controller yet to be implemented.
 
 Let me know in case you face any difficulty.
