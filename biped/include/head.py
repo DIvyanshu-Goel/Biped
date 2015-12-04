@@ -28,7 +28,7 @@ def head(goal_pos,time_limit):
     H2 = rospy.Publisher('/H2_controller/command', Float64, queue_size=10);
     
     #initialize node for the specific subpart
-    rospy.init_node('Right_arm_node', anonymous=True);  
+    #rospy.init_node('Right_arm_node', anonymous=True);  
 
     rate = rospy.Rate(update_rate) # 50hz update rate
     time.sleep(0.2);      # make the system sleep a while 

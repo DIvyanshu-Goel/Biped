@@ -1,38 +1,5 @@
 #!/usr/bin/env python
 
-#################################################################################
-#
-#matrix index --> motor_id
-#0 --> 51 (Right_Arm_1)
-#1 --> 52 (Right_Arm_2)
-#2 --> 53 (Right_Arm_3)
-#3 --> 54 (Right_Arm_4)
-#4 --> 41 (Left_Arm_1)
-#5 --> 42 (Left_Arm_2)
-#6 --> 43 (Left_Arm_3)
-#7 --> 44 (Left_Arm_4)
-#8 --> 35 (Torso_1)
-#9 --> 34 (Torso_2)
-#10 --> 33 (Torso_3)
-#11 --> 32 (Torso_4)
-#12 --> 31 (Torso_5)
-#13 --> 21 (Right_Leg_1)
-#14 --> 22 (Right_Leg_2)
-#15 --> 23 (Right_Leg_3)
-#16 --> 24 (Right_Leg_4)
-#17 --> X (Right_Leg_5)
-#18 --> X (Right_Leg_6)
-#19 --> 11 (Left_Leg_1)
-#20 --> 12 (Left_Leg_2)
-#21 --> 13 (Left_Leg_3)
-#22 --> 14 (Left_Leg_4)
-#23 --> 15 (Left_Leg_5)
-#24 --> 16 (Left_Leg_6)
-#25 --> 36 (Head_1)
-#26 --> 37 (Head_2)
-#27 --> X
-#
-#################################################################################
 import sys
 import rospy
 import time
@@ -128,6 +95,14 @@ def callback_RL4(data):
     #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data);
     global motor_states;
     motor_states[16] = data ;  
+def callback_RL5(data):
+    #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data);
+    global motor_states;
+    motor_states[17] = data ;
+def callback_RL6(data):
+    #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data);
+    global motor_states;
+    motor_states[18] = data ; 
 
 #Left_Leg
 def callback_LL1(data):
@@ -196,6 +171,8 @@ def fetch_motor_data_server():
     rospy.Subscriber('/RL2_controller/state', JointState, callback_RL2); 
     rospy.Subscriber('/RL3_controller/state', JointState, callback_RL3); 
     rospy.Subscriber('/RL4_controller/state', JointState, callback_RL4);
+    rospy.Subscriber('/RL5_controller/state', JointState, callback_RL5);
+    rospy.Subscriber('/RL6_controller/state', JointState, callback_RL6);
 
     #Left_leg
     rospy.Subscriber('/LL1_controller/state', JointState, callback_LL1); 

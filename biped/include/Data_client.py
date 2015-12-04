@@ -24,8 +24,8 @@ if __name__ == "__main__":
 			mode=int(raw_input('Input:'));	    
 		except ValueError:
 			print("Not a number");
-		if(mode <= 26 and mode != 17 and mode != 18):	
+		if(mode <= 26 ):	
 			response1 =motor_data_client(mode);
 			print "%s %s %s %s %s"%(response1.motor_ids,response1.current_pos,response1.velocity,response1.load,response1.is_moving);
 		else:
-			print('Enter value less than 27 and not 17,18');
+			print('Enter value less than 27 ');

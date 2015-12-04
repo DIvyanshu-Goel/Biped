@@ -18,6 +18,12 @@ update_rate = 50;
 
 def torso(goal_pos,time_limit):
     global start_pos;
+
+ #   if ( data_check(goal_pos,time_limit) == 0):
+        #end if value is not proper ie goal pos outof bound ot time limit too small
+ #check for dataserver else popup a message
+
+
     motorT1_response = motor_data_client(motorid_T[0]);
     motorT2_response = motor_data_client(motorid_T[1]);
     motorT3_response = motor_data_client(motorid_T[2]);
@@ -67,7 +73,7 @@ def calculate_trajectory(time_count,start_pos,goal_pos,time_limit):
     curr_position[2] = start_pos[2] + ((goal_pos[2]-start_pos[2])/time_limit)*(time_count - (time_limit/2/3.14)*sin(2*3.14*time_count/time_limit));
     curr_position[3] = start_pos[3] + ((goal_pos[3]-start_pos[3])/time_limit)*(time_count - (time_limit/2/3.14)*sin(2*3.14*time_count/time_limit));
     curr_position[4] = start_pos[4] + ((goal_pos[4]-start_pos[4])/time_limit)*(time_count - (time_limit/2/3.14)*sin(2*3.14*time_count/time_limit));
-    return(curr_position);   
+    return(curr_position);     
 
 ###########################################################################################################################
 
@@ -79,9 +85,15 @@ def motor_data_client(x):
 
 ###########################################################################################################################
 
+def data_check(goal_pos,time_limit):
+    if (time_limit < 0.5):
+        return 0;
+
+###########################################################################################################################
+
 if __name__ == '__main__':
     try:
-        torso([0,1,1,1,0],1);
+        torso([0,0,0,0,0.8],1);
         time.sleep(2);
         torso([0,0,0,0,0],2);
         time.sleep(2);

@@ -11,28 +11,28 @@ from biped.msg import *
 from biped.srv import *
 #for details on motor ids see Data_Server.py
 start_pos = [0, 0 ,0 ,0];
-motorid_RL = [13,14,15,16];
+motorid_RA = [0,1,2,3];
 update_rate = 50;
 
-############################################################################################################################
+###########################################################################################################################
 
-def right_leg(goal_pos,time_limit):
+def right_arm(goal_pos,time_limit):
     global start_pos;
-    motorRL1_response = motor_data_client(motorid_RL[0]);
-    motorRL2_response = motor_data_client(motorid_RL[1]);
-    motorRL3_response = motor_data_client(motorid_RL[2]);
-    motorRL4_response = motor_data_client(motorid_RL[3]);
-    start_pos = [motorRL1_response.current_pos,motorRL2_response.current_pos,motorRL3_response.current_pos,motorRL4_response.current_pos];
+    motorRA1_response = motor_data_client(motorid_RA[0]);
+    motorRA2_response = motor_data_client(motorid_RA[1]);
+    motorRA3_response = motor_data_client(motorid_RA[2]);
+    motorRA4_response = motor_data_client(motorid_RA[3]);
+    start_pos = [motorRA1_response.current_pos,motorRA2_response.current_pos,motorRA3_response.current_pos,motorRA4_response.current_pos];
     curr_pos = start_pos;
 
     #handlers for motor publishers
-    RL1 = rospy.Publisher('/RL1_controller/command', Float64, queue_size=10);
-    RL2 = rospy.Publisher('/RL2_controller/command', Float64, queue_size=10);
-    RL3 = rospy.Publisher('/RL3_controller/command', Float64, queue_size=10);
-    RL4 = rospy.Publisher('/RL4_controller/command', Float64, queue_size=10);
+    RA1 = rospy.Publisher('/RA1_controller/command', Float64, queue_size=10);
+    RA2 = rospy.Publisher('/RA2_controller/command', Float64, queue_size=10);
+    RA3 = rospy.Publisher('/RA3_controller/command', Float64, queue_size=10);
+    RA4 = rospy.Publisher('/RA4_controller/command', Float64, queue_size=10);
     
     #initialize node for the specific subpart
-    rospy.init_node('Right_arm_node', anonymous=True);  
+    #rospy.init_node('Right_arm_node', anonymous=True);  
 
     rate = rospy.Rate(update_rate) # 50hz update rate
     time.sleep(0.05);      # make the system sleep a while 
@@ -43,16 +43,17 @@ def right_leg(goal_pos,time_limit):
         global curr_pos; 
         curr_pos = calculate_trajectory(time_count,start_pos,goal_pos,time_limit);
 
-        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to left leg motor 1" %curr_pos[0] );
-        RL1.publish(curr_pos[0] );
-        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to left leg motor 2" %curr_pos[1] );
-        RL2.publish(curr_pos[1] );
-        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to left leg motor 3" %curr_pos[2] );
-        RL3.publish(curr_pos[2] );
-        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to left leg motor 4" %curr_pos[3] );
-        RL4.publish(curr_pos[3] );
+        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to right arm motor 1" %curr_pos[0] );
+        RA1.publish(curr_pos[0] );
+        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to right arm motor 2" %curr_pos[1] );
+        RA2.publish(curr_pos[1] );
+        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to right arm motor 3" %curr_pos[2] );
+        RA3.publish(curr_pos[2] );
+        rospy.loginfo(rospy.get_caller_id() + " Publishing %s to right arm motor 4" %curr_pos[3] );
+        RA4.publish(curr_pos[3] );
         time_count = time_count + 1;
         time.sleep(0.02);
+
    
 ###########################################################################################################################
 
@@ -76,9 +77,9 @@ def motor_data_client(x):
 
 if __name__ == '__main__':
     try:
-        right_leg([0,1,1,1],1);
+        right_arm([0,1,1,1],1);
         time.sleep(2);
-        right_leg([0,0,0,0],2);
+        right_arm([0,0,0,0],2);
         time.sleep(2);
     except rospy.ROSInterruptException:
         pass

@@ -12,7 +12,7 @@ from biped.srv import *
 #for details on motor ids see Data_Server.py
 start_pos = [0, 0 ,0 ,0];
 motorid_RA = [0,1,2,3];
-update_rate = 50;
+update_rate = 100;
 
 ###########################################################################################################################
 
