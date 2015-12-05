@@ -9,7 +9,9 @@
                 RL1_controller                       
                 RL2_controller
                 RL3_controller
-                RL4_controller " output="screen"/>
+                RL4_controller
+                RL5_controller
+                RL6_controller " output="screen"/>
 <!-- Start left_leg joint controller -->
     <rosparam file="$(find biped)/Joint_Info/left_leg.yaml" command="load"/>
     <node name="left_leg_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"

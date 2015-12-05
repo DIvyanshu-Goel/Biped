@@ -35,21 +35,21 @@ right_leg.right_leg([0,0,0,0,0,0],.2);
 left_leg.left_leg([0,0,0,0,0,0],.2);
 head.head([0,0],.2);
 
-right_arm.right_arm([1,1.5,-1.5,1.16],.1);
+#right_arm.right_arm([1,1.5,-1.5,1.16],.1);
 time.sleep(0.5);
 #torso.torso([-0.3,0,0,-.1,0],1);
 time.sleep(0.5);
 #torso.torso([0,0,0,0,0],1);
 time.sleep(0.5);
-right_arm.right_arm([0,1.5,0,0],.2);
+#right_arm.right_arm([0,1.5,0,0],.2);
 time.sleep(0.5);
-left_arm.left_arm([-1.4,-1.9,1.4,-1.5],.1);
+#left_arm.left_arm([-1.4,-1.9,1.4,-1.5],.1);
 time.sleep(0.5);
-left_arm.left_arm([-.93,-1.9,1.4,-1.5],.2);
+#left_arm.left_arm([-.93,-1.9,1.4,-1.5],.2);
 time.sleep(0.5);
-left_arm.left_arm([-1.6,-1.9,1.4,-1.5],.1);
+#left_arm.left_arm([-1.6,-1.9,1.4,-1.5],.1);
 time.sleep(0.5);
-right_arm.right_arm([1,1.5,-1.5,1.16],.1);
+#right_arm.right_arm([1,1.5,-1.5,1.16],.1);
 
 
 def master():

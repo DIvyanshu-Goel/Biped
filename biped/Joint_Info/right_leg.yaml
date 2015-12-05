@@ -46,5 +46,29 @@ RL4_controller:
         id: 24
         init: 2048
         min: 0
-        max: 4095        
+        max: 4095   
+RL5_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_5RL
+    joint_speed: 1.0
+    motor:
+        id: 25
+        init: 2048
+        min: 0
+        max: 4095 
+RL6_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_6RL
+    joint_speed: 1.0
+    motor:
+        id: 26
+        init: 2048
+        min: 0
+        max: 4095      
 
